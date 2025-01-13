@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme Variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,8 +15,110 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Base Styles */
+@layer base {
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+/* Components */
+@layer components {
+  .container {
+    @apply px-5 py-8 max-w-[850px] mx-auto flex flex-col items-center;
+  }
+  
+  .recipes-grid {
+    @apply grid grid-cols-3 gap-5 mt-5 w-full;
+    @apply justify-items-center;
+  }
+  
+  .recipe-card {
+    @apply border border-gray-300 rounded-lg p-4;
+    @apply w-[250px] h-[280px];
+    @apply flex flex-col items-center;
+    @apply cursor-pointer;
+  }
+
+  .recipe-image {
+    @apply w-full h-[150px];
+    @apply rounded-lg mb-3;
+    @apply object-cover;
+  }
+
+  .recipe-container {
+    @apply max-w-3xl mx-auto px-4 py-8;
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .recipe-detail-image {
+    @apply w-full max-w-xl rounded-lg shadow-lg my-6;
+    @apply object-cover h-[300px];
+  }
+
+  .search-input {
+    @apply w-full max-w-md mx-auto px-4 py-2 my-5 block;
+    @apply rounded-lg border border-gray-300;
+    @apply text-gray-900 bg-white;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+    @apply placeholder-gray-500 dark:bg-gray-100 dark:text-gray-900;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 bg-blue-600 text-white rounded-lg;
+    @apply hover:bg-blue-700 transition-colors shadow-md;
+    @apply mx-auto;
+  }
+
+  .image-container {
+    @apply w-full max-w-xl my-6;
+  }
+
+  .placeholder {
+    @apply bg-gray-200 flex items-center justify-center text-gray-500;
+    @apply h-[300px] rounded-lg;
+  }
+
+  .cooking-time {
+    @apply flex items-center justify-center;
+    @apply gap-1 text-sm text-gray-600;
+    @apply mt-auto;
+  }
+
+  .recipe-title {
+    @apply font-medium text-lg mb-2;
+    @apply line-clamp-2;
+    @apply text-center;
+  }
+
+  .no-results {
+    @apply w-full text-center text-gray-600;
+    @apply col-span-3 my-8;
+    @apply text-lg;
+  }
+
+}
+
+/* Custom Classes */
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-results {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
